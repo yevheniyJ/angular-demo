@@ -1,0 +1,31 @@
+    <div>
+        <div class="container">
+            <h1>New Event</h1>
+            <hr/>
+            <form>
+                <fieldset>
+                    <label for="eventName">Event Name:</label>
+                    <input id="eventName" type="text" ng-model="event.name" placeholder="Name of your event..."/>
+                    <label for="eventDate">Event Date:</label>
+                    <input id="eventDate" type="text" ng-model="event.date" placeholder="format (mm/dd/yyyy)..."/>
+                    <label for="eventTime">Event Time:</label>
+                    <input id="eventTime" type="text" ng-model="event.time" placeholder="start and end time..."/>
+                    <label for="eventLocation">Event Location:</label>
+                    <input id="eventLocation" type="text" ng-model="event.location.address" placeholder="Address of event..."/>
+                    <br/>
+                    <input id="eventCity" type="text" ng-model="event.location.city" class="input-small" placeholder="City..."/>
+
+                    <label for="eventImageUrl">Image:</label>
+                    <input id="eventImageUrl" type="url" ng-model="event.imageUrl" class="input-xlarge" placeholder="Url of image..."/>
+                    <label for="eventDescription">Description:</label>
+                    <textarea id="eventDescription" ng-model="event.description" class="form-control"></textarea>
+                </fieldset>
+
+                <img ng-src="{{event.imageUrl}}" src="">
+                <br/>
+                <br/>
+                <button type="submit" ng-click="saveEvent(event)" class="btn btn-primary">Save</button>
+                <button type="button" ng-click="cancelEdit()" class="btn btn-default">Cancel</button>
+            </form>
+        </div>
+    </div>

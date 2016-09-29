@@ -1,0 +1,25 @@
+<div>
+    <img ng-src="{{event.imageUrl}}" alt="{{event.name}}"/>
+
+    <div class="row">
+        <div class="span11">
+            <h2 ng-bind-template="{{event.name | uppercase}}"></h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span3">
+            <div><strong>Date:</strong> {{event.date}}</div>
+            <div><strong>Time:</strong> {{event.time}}</div>
+        </div>
+        <div class="span4">
+            <address>
+                <strong>Address:</strong><br/>
+                {{event.location.address}}<br/>
+                {{event.location.city}}
+            </address>
+        </div>
+        <div class="span6">
+            <textarea disabled>{{event.description}}</textarea>
+        </div>
+    </div>
+</div>

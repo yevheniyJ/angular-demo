@@ -1,0 +1,32 @@
+<div>
+    <h1>Events</h1>
+    <hr/>
+    <hr/>
+    <ul class="thumbnails">
+        <li ng-repeat="event in events" class="span5">
+            <a ui-sref="event({eventId: event.id})">
+                <div class="well hoverwell">
+                    <div class="row">
+                        <h2 class="span6">{{event.name}}</h2>
+                    </div>
+                    <div class="row">
+                        <span class="span1">Date:<span>{{event.date}}</span></span>
+                    </div>
+                    <div class="row">
+                        <span class="span1">Time:<span>{{event.time}}</span></span>
+                    </div>
+                    <div class="row">
+                        <span class="span1">Address:<span>{{event.location.address}}</span></span>
+                    </div>
+                    <div class="row">
+                        <span class="span1">City:<span>{{event.location.city}}</span></span>
+                    </div>
+                </div>
+            </a>
+            <div>
+                <button class="btn btn-primary pull-left" ng-click="editEvent(event.id)">Edit</button>
+                <button class="btn btn-danger pull-right" ng-click="deleteEvent(event.id)">Delete</button>
+            </div>
+        </li>
+    </ul>
+</div>
