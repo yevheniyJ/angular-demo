@@ -5,11 +5,11 @@
         .module('eventsApp')
         .controller("RootCtrl", Root);
 
-    function Root($scope, $state, appConstants) {
+    function Root($scope, $state) {
         $scope.conf = {
             state: {
-                url: appConstants.eventEdit.state,
-                title: appConstants.eventEdit.title
+                url: '',
+                title: ''
             }
         };
 
@@ -18,5 +18,5 @@
         };
     }
 
-    Root.$inject = ['$scope', '$state', 'appConstants'];
+    Root.$inject = ['$scope', '$state'];
 })();
