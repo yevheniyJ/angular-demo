@@ -9,9 +9,10 @@
 //for Grunt
     /*@ngInject*/
 
-    function EventList($scope, eventService, $state) {
-        $scope.conf.state.url = 'new-event';
-        $scope.conf.state.title = 'New Event';
+    function EventList($scope, eventService, $state, appConstants) {
+
+        $scope.conf.state.url = appConstants.eventEdit.state;
+        $scope.conf.state.title = appConstants.eventEdit.title;
         // $scope.events = data;
 
         eventService.getAllEvents()
@@ -30,7 +31,7 @@
                 });
 
         $scope.editEvent = function (eventId) {
-            $state.go('new-event', {eventId: eventId});
+            $state.go(appConstants.eventEdit.state, {eventId: eventId});
         };
 
         $scope.deleteEvent = function (eventId) {
@@ -54,5 +55,5 @@
 
     }
 
-    EventList.$inject = ['$scope', 'eventService', '$state'];
+    EventList.$inject = ['$scope', 'eventService', '$state', 'appConstants'];
 })();

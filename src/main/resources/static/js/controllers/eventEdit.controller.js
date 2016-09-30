@@ -5,10 +5,10 @@
         .module('eventsApp')
         .controller("EventEditCtrl", EventEdit);
 
-    function EventEdit($scope, eventService, $state, data) {
+    function EventEdit($scope, eventService, $state, data, appConstants) {
 
-        $scope.conf.state.url = 'event-list';
-        $scope.conf.state.title = 'Event List';
+        $scope.conf.state.url = appConstants.eventList.state;
+        $scope.conf.state.title = appConstants.eventList.title;
 
         $scope.event = data;
 
@@ -31,5 +31,5 @@
         };
     }
 
-    EventEdit.$inject = ['$scope', 'eventService', '$state', 'data'];
+    EventEdit.$inject = ['$scope', 'eventService', '$state', 'data', 'appConstants'];
 })();

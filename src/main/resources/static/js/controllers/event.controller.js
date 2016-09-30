@@ -5,9 +5,9 @@
         .module('eventsApp')
         .controller("EventCtrl", Event);
 
-    function Event($scope, eventService, $stateParams) {
-        $scope.conf.state.url = 'event-list';
-        $scope.conf.state.title = 'Event List';
+    function Event($scope, eventService, $stateParams, appConstants) {
+        $scope.conf.state.url = appConstants.eventList.state;
+        $scope.conf.state.title = appConstants.eventList.title;
 
         eventService.getEvent($stateParams.eventId)
             .success(
@@ -20,14 +20,7 @@
                     console.log('failure', response);
                 });
 
-        $scope.upVoteSession = function (session) {
-            session.upVoteCount++;
-        };
-        $scope.downVoteSession = function (session) {
-            session.upVoteCount--;
-        };
-
     }
 
-    Event.$inject = ['$scope', 'eventService', '$stateParams'];
+    Event.$inject = ['$scope', 'eventService', '$stateParams', 'appConstants'];
 })();

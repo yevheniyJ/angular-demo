@@ -4,28 +4,28 @@
         .module('eventsApp')
         .config(confFn);
 
-    function confFn($stateProvider, $urlRouterProvider, $locationProvider) {
+    function confFn($stateProvider, $urlRouterProvider, $locationProvider, appConstants) {
         $stateProvider
-            .state('new-event', {
-                url: '/client/new-event/:eventId?',
-                templateUrl: 'templates/EventEdit.html',
-                controller: 'EventEditCtrl',
+            .state(appConstants.eventEdit.state, {
+                url: appConstants.eventEdit.url,
+                templateUrl: appConstants.eventEdit.templateUrl,
+                controller: appConstants.eventEdit.controller,
                 resolve: {
                     data: getEvent
                 }
             })
-            .state('event-list', {
-                url: '/',
-                templateUrl: 'templates/EventList.html',
-                controller: 'EventListCtrl'
+            .state(appConstants.eventList.state, {
+                url: appConstants.eventList.url,
+                templateUrl: appConstants.eventList.templateUrl,
+                controller: appConstants.eventList.controller
             })
-            .state('event', {
-                url: '/client/event/:eventId',
-                templateUrl: 'templates/EventDetails.html',
-                controller: 'EventCtrl'
+            .state(appConstants.eventView.state, {
+                url: appConstants.eventView.url,
+                templateUrl: appConstants.eventView.templateUrl,
+                controller: appConstants.eventView.controller
             });
 
-        $urlRouterProvider.otherwise('/');
+        $urlRouterProvider.otherwise(appConstants.eventList.url);
         $locationProvider.html5Mode(true);
 
     }
@@ -40,7 +40,7 @@
         return {}; //new event;
     }
 
-    confFn.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
+    confFn.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', 'appConstants'];
 
     getEvent.$inject = ['eventService', '$stateParams'];
 
