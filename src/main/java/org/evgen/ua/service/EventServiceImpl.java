@@ -55,8 +55,8 @@ public class EventServiceImpl implements EventService {
 
     @Override
     public void deleteEvent(long id) {
-        log.debug("Deleting event with id : {}", id);
         Event event = loadEventById(id);
+        log.debug("Deleting event : {}", event);
         events.remove(event);
     }
 }
