@@ -15,7 +15,9 @@ public class Event {
 
     private final String time;
 
-    private final Location location;
+    private final String address;
+
+    private final String city;
 
     private final String imageUrl;
 

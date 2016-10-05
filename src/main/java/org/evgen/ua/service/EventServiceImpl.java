@@ -3,7 +3,6 @@ package org.evgen.ua.service;
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 import org.evgen.ua.pojo.Event;
-import org.evgen.ua.pojo.Location;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -16,9 +15,7 @@ public class EventServiceImpl implements EventService {
     private List<Event> events = new ArrayList<>();
 
     {
-        val event = new Event(1L, "Angular Boot Camp", "9/20/2016", "2:33 pm",
-                new Location("Google street", "Lviv"), "/img/AngularJS-logo.png",
-                "Test description\nNew Line");
+        val event = new Event(1L, "Angular Boot Camp", "9/20/2016", "2:33 pm", "Google street", "Lviv", "/img/AngularJS-logo.png", "Test description\nNew Line");
         events.add(event);
     }
 
