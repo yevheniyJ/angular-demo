@@ -20,7 +20,7 @@ public class EventController {
     }
 
     @RequestMapping(value = "/event/save", method = RequestMethod.POST)
-    public void getEventById(@RequestBody Event event) {
+    public void saveEvent(@RequestBody Event event) {
         eventService.saveEvent(event);
     }
 
